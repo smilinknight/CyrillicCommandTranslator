@@ -11,7 +11,6 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 
-
 namespace CyrillicCommandTranslator
 {
     [ApiVersion(2, 1)]
@@ -25,6 +24,8 @@ namespace CyrillicCommandTranslator
         public override Version Version => new Version(1, 0);
 
         public CyrillicCommandTranslator(Main game) : base(game)
+        //dontgiveashit.png
+        
         {
             LoadKeyMapping();
         }
@@ -43,7 +44,6 @@ namespace CyrillicCommandTranslator
                 { "Ш", "I" },
                 { "Щ", "O" },
                 { "З", "P" },
-
                 { "Ф", "A" },
                 { "Ы", "S" },
                 { "В", "D" },
@@ -53,7 +53,6 @@ namespace CyrillicCommandTranslator
                 { "О", "J" },
                 { "Л", "K" },
                 { "Д", "L" },
-
                 { "Я", "Z" },
                 { "Ч", "X" },
                 { "С", "C" },
@@ -73,18 +72,13 @@ namespace CyrillicCommandTranslator
 
 
         {
-            if (args.Text.StartsWith("/") || args.Text.StartsWith(".")) 
+            if (args.Text.StartsWith("/") | args.Text.StartsWith(".")) 
             {
                 var translatedCommand = TranslateCommand(args.Text);
                 if (translatedCommand != args.Text)
                 {
-                    // Log or notify the player about the translation
-                    TShock.Players[args.Who].SendMessage($"Translated command: {translatedCommand}", Color.Yellow);
-
-                    // Cancel the original command
+                    // debug // TShock.Players[args.Who].SendMessage($"Translated command: {translatedCommand}", Color.Yellow);
                     args.Handled = true;
-
-                    // Create a new command with the translated text
                     TShockAPI.Commands.HandleCommand(TShock.Players[args.Who], translatedCommand);
                 }
             }
@@ -102,11 +96,12 @@ namespace CyrillicCommandTranslator
                 }
                 else
                 {
-                    translated += character; // Keep the character if it is not in the mapping
+                    translated += character; 
                 }
             }
 
             return translated;
+
         }
     }
 }
