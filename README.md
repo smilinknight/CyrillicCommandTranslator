@@ -1,3 +1,5 @@
-Terraria TShock plugin that converts user command input layout from cyrillic into latin. Easier input with multilanguaged keyboards.
+Terraria TShock plugin that converts user command input layout from cyrillic into latin. 
 
-> Requires no additional plugin permissions.
+Easier input with multilanguaged keyboards.
+
+> No additional plugin permissions required, global effect QOL plugin.
